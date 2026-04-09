@@ -19,11 +19,11 @@ public class Producto {
 
     // Getters y setters
 
-    public Integer getIdPK() {
-        return id;
+    public Integer getId() {
+        return id   ;
     }
-    public void setIdPK(Integer idPK) {
-        this.id = idPK;
+    public void setId(Integer id) {
+        this.id = id;
     }   
 
     public String getNombre() {

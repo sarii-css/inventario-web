@@ -2,6 +2,8 @@ package com.ss.inventario.model;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -19,6 +21,7 @@ public class Movimiento {
     private Usuario idUsuario;
     private String tipo;
     private Integer cantidad;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaventa;
     
     // Getters y setters

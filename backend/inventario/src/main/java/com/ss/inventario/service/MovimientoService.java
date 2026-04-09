@@ -31,7 +31,7 @@ public class MovimientoService {
 
         // 🔹 obtener producto
         Producto producto = productoRepository
-                .findById(movimiento.getIdProducto().getIdPK())
+                .findById(movimiento.getIdProducto().getId())
                 .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
 
         // 🔥 lógica de inventario
