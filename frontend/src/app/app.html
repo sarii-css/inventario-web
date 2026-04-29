@@ -1,0 +1,43 @@
+<h2>Registrar Movimiento</h2>
+
+<label>Producto ID:</label>
+<input 
+  type="number"
+  [(ngModel)]="movimiento.idProducto.id" 
+  name="producto">
+
+<br>
+
+<label>Usuario ID:</label>
+<input 
+  type="number"
+  [(ngModel)]="movimiento.idUsuario.id" 
+  name="usuario">
+
+<br>
+
+<label>Tipo:</label>
+<select [(ngModel)]="movimiento.tipo" name="tipo">
+  <option value="ENTRADA">ENTRADA</option>
+  <option value="SALIDA">SALIDA</option>
+</select>
+
+<br>
+
+<label>Cantidad:</label>
+<input 
+  type="number" 
+  [(ngModel)]="movimiento.cantidad" 
+  name="cantidad">
+
+  <br>
+
+<label>Fecha:</label>
+<input 
+  type="date"
+  [(ngModel)]="movimiento.fechaventa"
+  name="fecha">
+  
+<br><br>
+
+<button (click)="guardar()">Guardar</button>
