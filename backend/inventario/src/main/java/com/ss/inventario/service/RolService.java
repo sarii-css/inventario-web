@@ -14,25 +14,21 @@ public class RolService {
     @Autowired
     private RolRepository repository;
 
-    // 🔹 READ (ver todos)
     public List<Rol> obtenerTodos() {
         return repository.findAll();
     }
 
-    // 🔹 CREATE y UPDATE
     public Rol guardar(Rol rol) {
         return repository.save(rol);
     }
 
-    // 🔹 DELETE
     public void eliminar(Integer id) {
         if (!repository.existsById(id)) {
-            throw new RuntimeException("Producto no existe");
+            throw new RuntimeException("Rol no existe");
         }
         repository.deleteById(id);
     }
 
-    // 🔹 READ por ID (extra pro)
     public Rol obtenerPorId(Integer id) {
         return repository.findById(id).orElse(null);
     }

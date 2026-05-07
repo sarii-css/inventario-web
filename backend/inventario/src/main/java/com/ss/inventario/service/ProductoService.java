@@ -14,17 +14,14 @@ public class ProductoService {
     @Autowired
     private ProductoRepository repository;
 
-    // 🔹 READ (ver todos)
     public List<Producto> obtenerTodos() {
         return repository.findAll();
     }
 
-    // 🔹 CREATE y UPDATE
     public Producto guardar(Producto producto) {
         return repository.save(producto);
     }
 
-    // 🔹 DELETE
     public void eliminar(Integer id) {
         if (!repository.existsById(id)) {
             throw new RuntimeException("Producto no existe");
@@ -32,7 +29,6 @@ public class ProductoService {
         repository.deleteById(id);
     }
 
-    // 🔹 READ por ID (extra pro)
     public Producto obtenerPorId(Integer id) {
         return repository.findById(id).orElse(null);
     }

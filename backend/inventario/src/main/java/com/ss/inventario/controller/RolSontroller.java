@@ -16,25 +16,21 @@ public class RolSontroller {
     @Autowired
     private RolService service;
 
-    // 🔹 READ (ver todos)
     @GetMapping
     public List<Rol> obtenerTodos() {
         return service.obtenerTodos();
     }
 
-    // 🔹 CREATE y UPDATE
     @PostMapping
     public Rol guardar(@RequestBody Rol rol) {
         return service.guardar(rol);
     }
 
-    // 🔹 DELETE
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable Integer id) {
         service.eliminar(id);
     }
 
-    // 🔹 READ por ID 
     @GetMapping("/{id}")
     public Rol obtenerPorId(@PathVariable Integer id) {
         return service.obtenerPorId(id);

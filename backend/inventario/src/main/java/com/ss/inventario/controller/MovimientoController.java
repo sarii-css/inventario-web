@@ -16,25 +16,21 @@ public class MovimientoController {
     @Autowired
     private MovimientoService service;
 
-    // 🔹 READ (ver todos)
     @GetMapping
     public List<Movimiento> obtenerTodos() {
         return service.obtenerTodos();
     }
 
-    // 🔹 CREATE y UPDATE
     @PostMapping
     public Movimiento guardar(@RequestBody Movimiento movimiento) {
         return service.guardar(movimiento);
     }
 
-    // 🔹 DELETE
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable Integer id) {
         service.eliminar(id);
     }
 
-    // 🔹 READ por ID 
     @GetMapping("/{id}")
     public Movimiento obtenerPorId(@PathVariable Integer id) {
         return service.obtenerPorId(id);

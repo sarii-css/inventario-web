@@ -16,25 +16,21 @@ public class UsuarioController {
     @Autowired
     private UsuarioService service;
 
-    // 🔹 READ (ver todos)
     @GetMapping
     public List<Usuario> obtenerTodos() {
         return service.obtenerTodos();
     }
 
-    // 🔹 CREATE y UPDATE
     @PostMapping
     public Usuario guardar(@RequestBody Usuario usuario) {
         return service.guardar(usuario);
     }
 
-    // 🔹 DELETE
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable Integer id) {
         service.eliminar(id);
     }
 
-    // 🔹 READ por ID 
     @GetMapping("/{id}")
     public Usuario obtenerPorId(@PathVariable Integer id) {
         return service.obtenerPorId(id);

@@ -21,20 +21,16 @@ public class MovimientoService {
     @Autowired
     private ProductoRepository productoRepository;
 
-    // 🔹 READ
     public List<Movimiento> obtenerTodos() {
         return repository.findAll();
     }
 
-    // 🔥 CREATE (con lógica real)
     public Movimiento guardar(Movimiento movimiento) {
 
-        // 🔹 obtener producto
         Producto producto = productoRepository
                 .findById(movimiento.getIdProducto().getId())
                 .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
 
-        // 🔥 lógica de inventario
         if (movimiento.getTipo().equalsIgnoreCase("ENTRADA")) {
             producto.setStock(producto.getStock() + movimiento.getCantidad());
         } 
@@ -48,16 +44,13 @@ public class MovimientoService {
             throw new RuntimeException("Tipo de movimiento inválido");
         }
 
-        // 🔹 guardar producto actualizado
         productoRepository.save(producto);
 
-        // 🔹 fecha automática
         movimiento.setFechaventa(LocalDate.now());
 
         return repository.save(movimiento);
     }
 
-    // 🔹 DELETE
     public void eliminar(Integer id) {
         if (!repository.existsById(id)) {
             throw new RuntimeException("Movimiento no existe");
@@ -65,7 +58,6 @@ public class MovimientoService {
         repository.deleteById(id);
     }
 
-    // 🔹 READ por ID
     public Movimiento obtenerPorId(Integer id) {
         return repository.findById(id).orElse(null);
     }
